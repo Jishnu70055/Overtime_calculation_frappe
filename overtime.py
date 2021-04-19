@@ -27,15 +27,22 @@ def before_submit(doc, event):
     ot_hour = int(hours - 8) 
     overtime = minutes - 480
     ot_minutes = int(overtime % 60)
-    # frappe.throw(o)
-
-    # frappe.throw(minutes)
     doc.total_work = str(hours) +":"+str(working_minute)
     if ot_hour < 0:
         doc.ot = 0
     else:
         doc.ot = str(ot_hour)+":"+str(ot_minutes)
-    # doc.over_time_employee = k
-    # doc.save()
+    
+
+    #------------------- /workspace/development/frappe-bench/apps/tsite/tsite/hooks.py ----------------
+
+#doc_events = {
+# 	"Attendance": {
+# 		"validate": "tsite.overtime.before_submit"
+# 		# "on_cancel": "method",
+# 		# "on_trash": "method"
+# 	}
+# }
+    
 
 
